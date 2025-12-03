@@ -1,0 +1,21 @@
+# Ignore the Python cache files
+__pycache__/
+
+# Ignore the virtual environment directory
+venv/
+
+# Ignore the Dockerfile and other configuration files
+Dockerfile
+requirements.txt
+README.md
+
+# Ignore frontend build artifacts
+frontend/dist/
+frontend/build/
+
+# Ignore any log files
+*.log
+
+# Ignore any temporary files
+*.tmp
+*.temp

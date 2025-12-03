@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  hand-pose-api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./src:/app/src
+      - ./frontend:/app/frontend
+      - ./best.pt:/app/best.pt
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped

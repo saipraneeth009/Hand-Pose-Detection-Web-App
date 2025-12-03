@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand Pose Detection</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤚 Hand Pose Detection</h1>
+            <p>Upload an image or use webcam for real-time hand pose detection</p>
+        </header>
+
+        <main>
+            <div class="mode-selector">
+                <button id="modeImageBtn" class="mode-btn active">📁 Image Upload</button>
+                <button id="modeWebcamBtn" class="mode-btn">📹 Webcam</button>
+            </div>
+
+            <!-- Image Mode -->
+            <div id="imageMode" class="mode-content active">
+                <div class="upload-section">
+                    <div class="upload-area" id="uploadArea">
+                        <input type="file" id="imageInput" accept="image/*" hidden>
+                        <div class="upload-content">
+                            <span>📁 Click to select image or drag and drop</span>
+                        </div>
+                    </div>
+                    <button id="detectBtn" class="btn btn-primary" disabled>🔍 Detect Pose</button>
+                    <button id="clearBtn" class="btn btn-secondary">Clear</button>
+                </div>
+
+                <div class="results-section">
+                    <div class="image-container">
+                        <h2>Original Image</h2>
+                        <img id="originalImage" src="" alt="Original Image" class="image-display">
+                    </div>
+
+                    <div class="image-container">
+                        <h2>Detection Result</h2>
+                        <img id="resultImage" src="" alt="Detection Result" class="image-display">
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h3>Detection Information</h3>
+                    <div id="infoBox" class="info-box">
+                        <p>Select an image to start</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Webcam Mode -->
+            <div id="webcamMode" class="mode-content">
+                <div class="webcam-section">
+                    <div class="webcam-container">
+                        <video id="webcamVideo" class="webcam-feed" autoplay playsinline></video>
+                        <!-- Hidden capture canvas used to send frames to the API -->
+                        <canvas id="captureCanvas" style="display:none;" width="1270" height="720"></canvas>
+                        <!-- Overlay canvas used to draw annotated frames returned by the API -->
+                        <canvas id="overlayCanvas" class="overlay-canvas" width="1270" height="720"></canvas>
+                    </div>
+                    <div class="webcam-controls">
+                        <button id="startWebcamBtn" class="btn btn-primary">▶️ Start Webcam</button>
+                        <button id="stopWebcamBtn" class="btn btn-secondary" disabled>⏹️ Stop Webcam</button>
+                    </div>
+                </div>
+
+                <div class="webcam-info-section">
+                    <h3>Live Detection</h3>
+                    <div id="webcamInfoBox" class="info-box">
+                        <p>Start the webcam to see real-time detection</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="loading" class="loading" style="display:none;">
+                <div class="spinner"></div>
+                <p>Processing image...</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>Hand Pose Detection using YOLOv8 | Powered by FastAPI</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

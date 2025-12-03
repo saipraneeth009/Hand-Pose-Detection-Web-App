@@ -167,6 +167,18 @@ This project requires the following Python packages, which are listed in `requir
 - FastAPI
 - Uvicorn
 
-## License
+## Website Demo
 
-This project is licensed under the MIT License.
+Below are screenshots showing the look and feel of the Hand Pose Detection web application:
+
+<p align="center">
+  <img src="media/Screenshot 2025-12-03 233433.png" alt="Hand Pose Detection Web UI - Upload Screen" width="400"/>
+  <br>
+  <em>Figure 1: Website demo - Upload interface for hand pose detection</em>
+</p>
+
+<p align="center">
+  <img src="media/Screenshot 2025-12-03 233449.png" alt="Hand Pose Detection Web UI - Detection Result" width="400"/>
+  <br>
+  <em>Figure 2: Website demo - Detection result with annotated hand keypoints</em>
+</p>
